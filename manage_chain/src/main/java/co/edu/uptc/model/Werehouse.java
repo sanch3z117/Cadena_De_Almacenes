@@ -3,17 +3,19 @@ package co.edu.uptc.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import co.edu.uptc.model.structures.MyList;
+
 public class Werehouse {
 
     private String name;
     private String address;
 
-    private ArrayList<Product> products;
+    private MyList<Product> products;
 
     public Werehouse(String name, String address) {
         this.name = name;
         this.address = address;
-        products = new ArrayList<>();
+        products = new MyList<>();
     }
 
     public boolean registerProduct(Product product) {
@@ -61,11 +63,11 @@ public class Werehouse {
 
     public String getAddress() {
         return address;
-    }  
+    }
 
     @Override
     public String toString() {
         return "Werehouse [address=" + address + ", name=" + name + "]";
     }
-    
+
 }
