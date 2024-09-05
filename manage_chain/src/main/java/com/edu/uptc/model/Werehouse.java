@@ -1,5 +1,66 @@
 package com.edu.uptc.model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Werehouse {
+
+    private String name;
+    private String address;
+
+    private ArrayList<Product> products;
+
+    public Werehouse(String name, String address) {
+        this.name = name;
+        this.address = address;
+        products = new ArrayList<>();
+    }
+
+    public boolean registerProduct(Product product) {
+        return products.add(product);
+    }
+
+    public Product showProduct(int code) {
+        Iterator<Product> it = products.iterator();
+        Product aux = it.next();
+        while (it.hasNext()) {
+            if (aux.getCode() == code) {
+                return aux;
+            }
+        }
+        return null;
+    }
+
+    public int countDifferentProducts() {
+        Iterator<Product> it = products.iterator();
+        int count = 0;
+        while (it.hasNext()) {
+            count = it.next().getAmount();
+        }
+        return count;
+    }
+
+    public float totalInventoryValue() {
+        Iterator<Product> it = products.iterator();
+        Product aux = it.next();
+        float value = 0;
+        while (it.hasNext()) {
+            value = aux.getAmount() * aux.getUnitValue();
+        }
+        return value;
+    }
+
+    public void registerSale(int code, int amount) {
+        Product aux = showProduct(code);
+        aux.updateQuantity(amount);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }  
     
 }
