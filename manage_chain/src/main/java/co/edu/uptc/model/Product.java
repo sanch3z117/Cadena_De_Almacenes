@@ -37,4 +37,9 @@ public class Product {
         return unitValue;
     }
 
+    @Override
+    public String toString() {
+        return "Product [amount=" + amount + ", code=" + code + ", name=" + name + ", unitValue=" + unitValue + "]";
+    }
+
 }

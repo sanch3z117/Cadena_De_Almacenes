@@ -62,5 +62,10 @@ public class Werehouse {
     public String getAddress() {
         return address;
     }  
+
+    @Override
+    public String toString() {
+        return "Werehouse [address=" + address + ", name=" + name + "]";
+    }
     
 }

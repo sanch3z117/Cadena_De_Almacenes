@@ -20,4 +20,15 @@ public class WerehouseChain {
         }
         return value;
     }
+
+    public Werehouse searchWerehouse(String name) {
+        Iterator<Werehouse> it = werehouses.iterator();
+        Werehouse aux = it.next();
+        while (it.hasNext()) {
+            if (aux.getName().equals(name)) {
+                return aux;
+            }
+        }
+        return null;
+    }
 }
