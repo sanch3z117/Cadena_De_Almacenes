@@ -1,4 +1,4 @@
-package com.edu.uptc.model;
+package co.edu.uptc.model;
 
 public class Product {
     private String name;
