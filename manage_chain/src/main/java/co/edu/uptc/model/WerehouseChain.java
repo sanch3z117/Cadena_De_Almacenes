@@ -1,11 +1,16 @@
 package co.edu.uptc.model;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+
+import co.edu.uptc.model.structures.MyList;
 
 public class WerehouseChain {
 
-    private ArrayList<Werehouse> werehouses;
+    private MyList<Werehouse> werehouses;
+
+    public WerehouseChain() {
+        werehouses = new MyList<>();
+    }
 
     public boolean registeWerehouse(Werehouse werehouse) {
         return werehouses.add(werehouse);
