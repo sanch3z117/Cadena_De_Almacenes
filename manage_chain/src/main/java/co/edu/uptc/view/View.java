@@ -17,7 +17,7 @@ public class View {
 	 * 
 	 * @param titlewindow este parametro define el titulo de la ventana emergente
 	 */
-	
+
 	public View(String titlewindow) {
 		this.titlewindow = titlewindow;
 	}
@@ -28,7 +28,6 @@ public class View {
 	 * @param message es de tipo string lo imprime atravez de JOptionPane
 	 */
 
-	
 	public void showMessage(String message) {
 		JOptionPane.showMessageDialog(null, message, titlewindow, JOptionPane.INFORMATION_MESSAGE);
 	}
@@ -40,7 +39,6 @@ public class View {
 	 * @return devuelve un string con la informacion capturada por teclado
 	 */
 
-	
 	public String readInfo(String message) {
 		return JOptionPane.showInputDialog(null, message, titlewindow, JOptionPane.QUESTION_MESSAGE);
 	}
@@ -58,5 +56,13 @@ public class View {
 	public Object readInMenu(String message, Object[] arrayopc, int positionArr) {
 		return JOptionPane.showInputDialog(null, message, titlewindow, JOptionPane.QUESTION_MESSAGE, null, arrayopc,
 				arrayopc[positionArr]);
+	}
+
+	public int optionMenu(Object[] menu) {
+		String opcString = (String) readInMenu("Ingrese la opcion deseada", menu, 0);
+		if (opcString == null) {
+			System.exit(0);
+		}
+		return Integer.parseInt(opcString.split("\\.")[0].trim());
 	}
 }

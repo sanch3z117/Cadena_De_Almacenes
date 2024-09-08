@@ -18,22 +18,30 @@ public class WerehouseChain {
 
     public float totalInventoryValueChain() {
         Iterator<Werehouse> it = werehouses.iterator();
-        Werehouse aux = it.next();
         float value = 0;
         while (it.hasNext()) {
-            value = aux.totalInventoryValue();
+            value = it.next().totalInventoryValue();
         }
         return value;
     }
 
     public Werehouse searchWerehouse(String name) {
         Iterator<Werehouse> it = werehouses.iterator();
-        Werehouse aux = it.next();
         while (it.hasNext()) {
-            if (aux.getName().equals(name)) {
-                return aux;
+            Werehouse werehouse = it.next();
+            if (werehouse.getName().equals(name)) {
+                return werehouse;
             }
         }
         return null;
+    }
+
+    public String showWerehouses() {
+        Iterator<Werehouse> it = werehouses.iterator();
+        String message = "";
+        while (it.hasNext()) {
+            message += it.next().toString() + "\n";
+        }
+        return message;
     }
 }

@@ -76,6 +76,7 @@ public class MyList<T> implements List<T> {
         return array;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <E> E[] toArray(E[] a) {
         if (a.length < this.size()) {
