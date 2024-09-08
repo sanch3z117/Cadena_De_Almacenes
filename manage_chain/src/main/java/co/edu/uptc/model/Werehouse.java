@@ -1,6 +1,5 @@
 package co.edu.uptc.model;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import co.edu.uptc.model.structures.MyList;
@@ -65,9 +64,16 @@ public class Werehouse {
         return address;
     }
 
+    
+
     @Override
     public String toString() {
-        return "Werehouse [address=" + address + ", name=" + name + "]";
+        Iterator<Product> it = products.iterator();
+        String message = "Bodega: " + name + " Direccion: " + address + "\n";
+        while (it.hasNext()) {
+            message += it.next().toString() + "\n";
+        }
+        return message;
     }
 
 }
